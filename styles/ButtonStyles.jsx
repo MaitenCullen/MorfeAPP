@@ -32,6 +32,10 @@ const ButtonStyles = StyleSheet.create({
         color:'#fff',
         fontSize:16,
         lineHeight:15,
+    },
+    return:{
+        justifyContent:'center',
+        alignItems: "center"
     }
 });
     

@@ -24,7 +24,7 @@ import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native'
               style={ButtonStyles.buttonGoogle}
               title='Lista'
               onPress={() => navigation.navigate('List')}>
-              <Text> Registrarse con Google </Text>
+              <Text> Aca vas a la lista don</Text>
           </TouchableOpacity>
           <Text style={GeneralStyles.textSigUp}>¿Ya hemos comido juntos? Iniciar sesión</Text>
       </View>

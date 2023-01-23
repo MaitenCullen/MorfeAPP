@@ -2,7 +2,7 @@
 import { StyleSheet } from "react-native";
 
 
-const Login = StyleSheet.create({
+const LoginStyles = StyleSheet.create({
     textLogin:{
         color:"white",
         fontSize:25,
@@ -13,4 +13,4 @@ const Login = StyleSheet.create({
 
 })
 
-export default Login;
+export default LoginStyles;

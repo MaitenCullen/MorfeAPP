@@ -3,10 +3,8 @@ import { Button, Text, TouchableOpacity, View } from 'react-native'
 import { TextInput } from 'react-native';
 import GeneralStyles from '../styles/GeneralStyles';
 import LoginStyles from '../styles/LoginStyles';
-import DatePicker from '@dietime/react-native-date-picker';
 
 export const LogIn = ({navigation}) => {
-  const [date, setDate] = useState();
   return (
         <View style={GeneralStyles.container}>
           <TextInput 
@@ -14,10 +12,10 @@ export const LogIn = ({navigation}) => {
           <TextInput 
           placeholder="Apellido"/>
           <Text>Selecciona tu fecha nacimiento</Text>
-         {!date? <DatePicker
+         {/* {!date? <DatePicker
           value={date}
           onChange={(value) => setDate(value)}
-          format="yyyy-mm-dd"/> : <Text> {date.toDateString()}</Text>}
+          format="yyyy-mm-dd"/> : <Text> {date.toDateString()}</Text>} */}
           <TextInput 
           placeholder="Provincia"/>
           <TextInput 

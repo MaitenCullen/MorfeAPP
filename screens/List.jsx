@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import { Button, Text, TextInput, View, FlatList, Modal, TouchableOpacity } from 'react-native';
 import ButtonStyles from '../styles/ButtonStyles';
 import GeneralStyles from '../styles/GeneralStyles';
+import Maps from './Maps';
 
 export const List = ({navigation}) => {
 	const [food, setFood] = useState('');
@@ -58,6 +59,9 @@ const deleteBotom = () => {
 			placeholderTextColor="#ED6B5B"
 			onChangeText={onChangeText} />
 		<Button disabled={!food} title="agrega" color='#ED6B5B' onPress={onPressButtom}/>
+	</View>
+	<View>
+		<Maps/>
 	</View>
 	<View style={GeneralStyles.listView}>
 		<FlatList

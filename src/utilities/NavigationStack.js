@@ -5,6 +5,7 @@ import { Home } from "../../screens/Home";
 import { LogIn } from "../../screens/LogIn";
 import { List } from './../../screens/List';
 import { Game } from './../../screens/Game';
+import ListFood from "../../screens/ListFood";
 
 
 const Stack = createNativeStackNavigator();
@@ -22,13 +23,17 @@ export default function NavigationStack(){
             component={LogIn}
             />
             <Stack.Screen
+            name="Game"
+            title="Game desafio"
+            component={Game}/>
+            <Stack.Screen
             name="List"
             title="Lista desafio"
             component={List}/>
             <Stack.Screen
-            name="Game"
-            title="Game desafio"
-            component={Game}/>
+            name="ListFood"
+            title="Lista comida desafio"
+            component={ListFood}/>
         </Stack.Navigator>
     )
 }

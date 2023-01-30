@@ -7,7 +7,7 @@ import {Alert} from 'react-native';
 import Card from "../src/components/Card";
 import TheNumber from "../src/components/TheNumber";
 import { CardStyle } from './../styles/CardStyle';
-import {TouchableOpacity} from 'react-native-web';
+
 
 
 
@@ -19,7 +19,7 @@ export const Game = ({navigation}) => {
     const [userNumber, setUserNumber] = useState(null);
 
 
-    const onHandleStarGame = (selectedNumber) => {
+    const startGame = (selectedNumber) => {
         setUserNumber(selectedNumber);
       };
     const onHandlerChange =(text) => {
@@ -42,7 +42,7 @@ export const Game = ({navigation}) => {
         }
     }
     const onHandleStartGame = () => {
-        onHandleStarGame(selectedNumber);
+        startGame(selectedNumber);
       };
     
     const Confirmed = () => confirmed ? (

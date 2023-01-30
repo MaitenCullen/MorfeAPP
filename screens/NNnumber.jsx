@@ -5,7 +5,7 @@ import { View } from 'react-native-web'
 
 
 
-export const NNnumber = () => {
+export const NNnumber = ({number}) => {
 
     let NNnumber = 19
   return (

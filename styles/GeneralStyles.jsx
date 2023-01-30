@@ -32,6 +32,7 @@ const GeneralStyles = StyleSheet.create({
       color:'#fff',
       fontWeight:'600',
       fontSize:40,
+      fontFamily:'Rubik-Regular'
     },
     textSigUp:{
       color:'#fff',
@@ -39,6 +40,8 @@ const GeneralStyles = StyleSheet.create({
       fontSize:20,
       width:200,
       textAlign: 'center',
+      fontFamily:'Roboto-Bold'
+
     },
     inputContainer:{
       justifyContent: "space-evenly",
@@ -57,6 +60,7 @@ const GeneralStyles = StyleSheet.create({
       borderBottomWidth:2,
       color:"white",
       marginBottom:20,
+      fontFamily:'Roboto-Bold'
     },
     listView:{
       justifyContent: "space-between",
@@ -99,7 +103,8 @@ const GeneralStyles = StyleSheet.create({
     modalTitle:{
       fontSize:15,
       fontWeight:"bold",
-      marginBottom:15
+      marginBottom:15,
+      fontFamily:'Roboto-Regular'
     },
     modalStyleDelete:{
       fontSize:14,

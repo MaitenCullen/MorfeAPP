@@ -85,10 +85,10 @@ const showMode = (currentMode) => {
               <Button title='Go Back' onPress={()=> navigation.goBack()}/>
             </View>
             <View>
-              <Button title='ir al juego' onPress={()=>navigation.navigate('Game')}></Button>
+              <Button title='ir a la lista' onPress={()=>navigation.navigate('ListFood')}></Button>
             </View>
             <View>
-              <Button title='ir a la lista' onPress={()=>navigation.navigate('ListFood')}></Button>
+              <Button title='Maps' onPress={()=>navigation.navigate('Maps')}></Button>
             </View>
           </View>
           </View>

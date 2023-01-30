@@ -60,9 +60,6 @@ const deleteBotom = () => {
 			onChangeText={onChangeText} />
 		<Button disabled={!food} title="agrega" color='#ED6B5B' onPress={onPressButtom}/>
 	</View>
-	<View>
-		<Maps/>
-	</View>
 	<View style={GeneralStyles.listView}>
 		<FlatList
 		data={foods}

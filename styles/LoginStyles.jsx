@@ -22,7 +22,8 @@ const LoginStyles = StyleSheet.create({
     textLogin:{
         color:'white',
         fontSize:20,
-        margin:5
+        margin:5,
+        fontFamily:'SignikaNegative-Regular'
     },
     textDate:{
         color:'#F9AC66',

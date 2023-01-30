@@ -4,8 +4,9 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Home } from "../../screens/Home";
 import { LogIn } from "../../screens/LogIn";
 import { List } from './../../screens/List';
-import { Game } from './../../screens/Game';
 import ListFood from "../../screens/ListFood";
+import Maps from "../../screens/Maps";
+
 
 
 const Stack = createNativeStackNavigator();
@@ -23,10 +24,6 @@ export default function NavigationStack(){
             component={LogIn}
             />
             <Stack.Screen
-            name="Game"
-            title="Game desafio"
-            component={Game}/>
-            <Stack.Screen
             name="List"
             title="Lista desafio"
             component={List}/>
@@ -34,6 +31,10 @@ export default function NavigationStack(){
             name="ListFood"
             title="Lista comida desafio"
             component={ListFood}/>
+            <Stack.Screen
+            name="Maps"
+            title="Maps"
+            component={Maps}/>
         </Stack.Navigator>
     )
 }

@@ -1,9 +1,11 @@
 
 
 import React from 'react'
-import { FlatList, SafeAreaView, Text } from 'react-native'
+import { Alert, FlatList, SafeAreaView, Text } from 'react-native'
 import { View } from 'react-native';
 import { useState } from 'react';
+import { Button } from 'react-native';
+import FoodListSyle from './../styles/FoodListStyle';
 
 
 
@@ -36,25 +38,25 @@ import { useState } from 'react';
         },
         {
             nombre: 'Tortas',
-            color:'#ED6B5B',
+            color:'#C36B84',
             tipo:'Postres',
             id:'05'
         },
         {
             nombre: 'Helados',
             color:'#ED6B5B',
-            tipo:'Postres',
+            tipo:'Helados',
             id:'06'
         },
         {
             nombre: 'Cerveza',
-            color:'#ED6B5B',
+            color:'#F9AC66',
             tipo:'Bebida',
             id:'07'
         },
         {
             nombre: 'Vino',
-            color:'#ED6B5B',
+            color:'#C36B84',
             tipo:'Bebida',
             id:'08'
         },
@@ -64,60 +66,86 @@ import { useState } from 'react';
 
     const FoodComponent = () => {
         return (
-          <View>
-            <Text style={{ fontSize: 60 }}>Hola</Text>
-          </View>
+          <SafeAreaView style={{fontWeight:'bold', fontSize:20, backgroundColor:'#3A3E59', flex: 1, alignItems:'center'}}>
+            <Text style={FoodListSyle.selectItem}>Comida</Text>
+            <Button title='Volver' onPress={()=> setSelectedFood()}/>
+          </SafeAreaView>
           )
       }
 
 
-    // const {nombre, color, id, tipo} = food.item
-    // const [ selectFood, setSelectFood] = useState({})
-    // console.warn( food, 'aca la comida')
+        const CakeComponent = () => {
+        return (
+          <SafeAreaView style={{fontWeight:'bold', fontSize:20, backgroundColor:'#3A3E59', flex: 1, alignItems:'center'}}>
+            <Text style={FoodListSyle.selectItem}>Tortas</Text>
+            <Button title='Volver' onPress={()=> setSelectedFood()}/>
+          </SafeAreaView>
+          )
+      }
+      const IceCreamComponent = ({navigation}) => {
+        return (
+          <SafeAreaView style={{fontWeight:'bold', fontSize:20, backgroundColor:'#3A3E59', flex: 1, alignItems:'center', justifyContent:'space-evenly'}}>
+            <Text style={FoodListSyle.selectItem}>Le pegaste, El helado es la mejor comida del mundo</Text>
+            <Button title='Volver' onPress={()=> setSelectedFood()}/>
+          </SafeAreaView>
+          )
+      }
+      const DrinkComponent = () => {
+        return (
+          <SafeAreaView style={{fontWeight:'bold', fontSize:20, backgroundColor:'#3A3E59', flex: 1, alignItems:'center'}}>
+            <Text style={FoodListSyle.selectItem}>Bebidas</Text>
+            <Button title='Volver' onPress={()=> setSelectedFood()}/>
+          </SafeAreaView>
+          )
+      }
+     
+      const renderComponents = () => {
+        switch (selectFood.item.tipo) {
+            case "Bebida":
+                return <DrinkComponent/>;
+            case "Postres":
+                return  <CakeComponent/> ;
+            case "Comida":
+                return <FoodComponent/> ;
+            case 'Helados':
+                return <IceCreamComponent/>
+        }
+      }
 
-    // const OnSelectFood = (food) => {
-    // console.log(id, tipo, food)
-    // setSelectFood(food)
-    // console.log(selectFood, "la comida")
-    // }
-
-    
+     
   const FoodsFlatList = ({food}) => {
     const {nombre, id, color, tipo} = food.item
     return (
-     <View >
-            <Text
-            onPress={()=>onSelectFood(food)}
-            backgroundColor='red'>
+     <View backgroundColor={color} 
+     style={FoodListSyle.item}           >
+            <Text style={FoodListSyle.text}
+            onPress={()=>onSelectFood(food)}>
              {nombre}
             </Text>
     </View>
     )     
 }
+
 const [selectFood, setSelectedFood] = useState() 
 
 const onSelectFood = (food)=> {
-
-    console.log(food, selectFood !== {}, "Hola mi amor")
  setSelectedFood(food)
 }
+
 
   return (
   <>
     { !selectFood ?
-        <SafeAreaView style={{marginHorizontal:10}}>
+        <SafeAreaView style={{fontWeight:'bold', fontFamily: 'Roboto-Regular',fontSize:20, backgroundColor:'#3A3E59', flex: 1, alignItems:'center'}}>
+        <Text style={FoodListSyle.text}> Adivina la mejor comida del mundo mundial</Text>
         <FlatList
-        extraData={()=> console.log(this,'HOLA')}
         data={foodList}
         keyExtractor={(food) => food.id}
         renderItem={(food, index)=> <FoodsFlatList food={food}/>}
-        ItemSeparatorComponent = {() => <View style={{marginVertical:10, borderColor:'black', borderWidth:1}}></View>}
-        ListHeaderComponent = {()=> <Text style={{fontWeight:'bold', fontSize:15}}>Las comidas</Text>}
+        ItemSeparatorComponent = {() => <View style={{margin:15}}></View>}
+        ListHeaderComponent = {()=> <Text style={{fontWeight:'bold', fontFamily: 'Roboto-Regular', fontSize:30, color:'white', textAlign:'center'}}>Las comidas</Text>}
         />
-   
-        </SafeAreaView> : <FoodComponent /> 
-        }
-        
+        </SafeAreaView> : renderComponents()}
         
   </>
     

@@ -16,12 +16,12 @@ const GeneralStyles = StyleSheet.create({
     },
     containerImage:{
       flex:3,
-      justifyContent: 'flex-end',
+      justifyContent: 'space-around',
       alignItems: 'center',
     },
     image:{
-      width:350,
-      height:300,
+      width:250,
+      height:200,
     },
     buttonContainer: {
       alignItems:'center',
@@ -130,6 +130,10 @@ const GeneralStyles = StyleSheet.create({
       fontSize:25,
       fontWeight: "bold",
       padding:10,
+    },
+    textNavigate:{
+      color:'#F9AC66',
+      fontFamily:'Rubik-Regular',
     }
   });
   

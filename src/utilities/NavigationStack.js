@@ -6,6 +6,7 @@ import { LogIn } from "../../screens/LogIn";
 import { List } from './../../screens/List';
 import ListFood from "../../screens/ListFood";
 import Maps from "../../screens/Maps";
+import { SignUp } from './../../screens/SignUp';
 
 
 
@@ -23,6 +24,10 @@ export default function NavigationStack(){
             title="Iniciar Sesión"
             component={LogIn}
             />
+                <Stack.Screen
+            name="Signup"
+            title="Ingresar"
+            component={SignUp}/>
             <Stack.Screen
             name="List"
             title="Lista desafio"

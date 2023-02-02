@@ -1,7 +1,7 @@
 import React from 'react'
 import GeneralStyles from '../styles/GeneralStyles'
 import ButtonStyles from '../styles/ButtonStyles'
-import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { Image, Linking, Text, TextInput, TouchableOpacity, View } from 'react-native'
 
 
  export const Home = ({navigation}) => {
@@ -26,7 +26,7 @@ import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native'
               onPress={() => navigation.navigate('List')}>
               <Text> Aca vas a la lista don</Text>
           </TouchableOpacity>
-          <Text style={GeneralStyles.textSigUp}>¿Ya hemos comido juntos? Iniciar sesión</Text>
+          <Text style={GeneralStyles.textSigUp}>¿Ya hemos comido juntos? <Text style={GeneralStyles.textNavigate} onPress={()=> navigation.navigate('Signup')}> Iniciar sesión</Text></Text>
       </View>
     </View>
   )

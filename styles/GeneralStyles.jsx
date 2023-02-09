@@ -15,8 +15,8 @@ const GeneralStyles = StyleSheet.create({
       alignItems:"center",
     },
     containerImage:{
-      flex:3,
-      justifyContent: 'space-around',
+      flex:2,
+      justifyContent: 'space-evenly',
       alignItems: 'center',
     },
     image:{

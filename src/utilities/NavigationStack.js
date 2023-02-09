@@ -18,28 +18,36 @@ export default function NavigationStack(){
             <Stack.Screen  
             name="Home"
             component={Home}
-            initialParams={{fromChild:"initial"}}/>
+            initialParams={{fromChild:"initial"}}
+            options={{ headerShown: false }}
+            />
             <Stack.Screen
             name="Login"
             title="Iniciar Sesión"
             component={LogIn}
+            options={{ headerShown: false }}
             />
-                <Stack.Screen
+            <Stack.Screen
             name="Signup"
             title="Ingresar"
-            component={SignUp}/>
+            component={SignUp}
+            options={{ headerShown: false }}
+            />
             <Stack.Screen
             name="List"
             title="Lista desafio"
-            component={List}/>
+            component={List}
+            />
             <Stack.Screen
             name="ListFood"
             title="Lista comida desafio"
-            component={ListFood}/>
+            component={ListFood}
+            />
             <Stack.Screen
             name="Maps"
             title="Maps"
-            component={Maps}/>
+            component={Maps}
+            />
         </Stack.Navigator>
     )
 }

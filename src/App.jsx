@@ -3,6 +3,7 @@ import NavigationStack from './utilities/NavigationStack';
 import React from 'react';
 import { useFonts } from 'expo-font';
 import { ActivityIndicator, View } from 'react-native';
+import NavigationTab from './utilities/NavigationTab';
 
 
 const App = () => {
@@ -22,7 +23,7 @@ const App = () => {
    }
   return (
    <NavigationContainer>
-   <NavigationStack/>
+      <NavigationTab/>
    </NavigationContainer>
   );
 }

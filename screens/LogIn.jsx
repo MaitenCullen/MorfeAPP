@@ -4,6 +4,7 @@ import { TextInput, TouchableOpacity } from 'react-native';
 import GeneralStyles from '../styles/GeneralStyles';
 import LoginStyles from '../styles/LoginStyles';
 import DateTimePicker from '@react-native-community/datetimepicker';
+import NavigationTab from '../src/utilities/NavigationTab';
 
 export const LogIn = ({navigation}) => {
 const [date, setDate] = useState (new Date());

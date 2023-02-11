@@ -6,6 +6,8 @@ import { ActivityIndicator, View } from 'react-native';
 import NavigationTab from './utilities/NavigationTab';
 
 
+
+
 const App = () => {
   const [loaded] = useFonts({
     "Roboto-Regular": require("../assets/Fonts/Roboto-Regular.ttf"),

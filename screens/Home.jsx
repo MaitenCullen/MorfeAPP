@@ -2,6 +2,7 @@ import React from 'react'
 import GeneralStyles from '../styles/GeneralStyles'
 import ButtonStyles from '../styles/ButtonStyles'
 import { Image, Linking, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { ShoppingCart } from '../src/components/ShoppingCart'
 
 
  export const Home = ({navigation}) => {

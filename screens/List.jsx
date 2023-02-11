@@ -3,6 +3,7 @@ import { Button, Text, TextInput, View, FlatList, Modal, TouchableOpacity } from
 import ButtonStyles from '../styles/ButtonStyles';
 import GeneralStyles from '../styles/GeneralStyles';
 import Maps from './Maps';
+import { ShoppingCart } from './../src/components/ShoppingCart';
 
 export const List = ({navigation}) => {
 	const [food, setFood] = useState('');
@@ -60,6 +61,7 @@ const deleteBotom = () => {
 			onChangeText={onChangeText} />
 		<Button disabled={!food} title="agrega" color='#ED6B5B' onPress={onPressButtom}/>
 	</View>
+	<ShoppingCart/>	
 	<View style={GeneralStyles.listView}>
 		<FlatList
 		data={foods}
@@ -67,7 +69,7 @@ const deleteBotom = () => {
 		keyExtractor={keyExtractor}
 		style={GeneralStyles.listContainer}
 		/>
-	</View>		
+	</View>	
 	<View style={ButtonStyles.return}>
 		<Button color="#F9AC66" title='Go Back' onPress={()=> navigation.goBack()}/>
 	</View>

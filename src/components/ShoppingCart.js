@@ -32,41 +32,41 @@ const deleteFromCart = (id, all = false) => {
 }
 
 const clearCartItem = () => {
-    dispatch({type:Types.RemoveAllFromCart})
+    dispatch({type:Types.ClearCart})
 }
   return (
-    <View style={styles.cart}>
-        <Text>carrito de compras</Text>
-        <View  style={styles.item}>
-           <Text>
-           Productos
-            </Text>
-            <View>
-                {products.map((product) => (<ProductItem key={product.id} data={product} addToCartItem ={addToCartItem}/>))}
-            </View>
-        </View>
-        <View>
-            <Text> Carrito</Text>
+    <View style={styles.container}>
+        <Text style={styles.text}>carrito de compras</Text>
+            {products.map((product) => (<ProductItem key={product.id} data={product} addToCartItem ={addToCartItem}/>))}
+        <View style={styles.button}>
             <TouchableOpacity
                 title='Eliminar carrito'
                 onPress={clearCartItem}>
-                    <Text> Limpiar carrito</Text>
-                </TouchableOpacity>
-                { cart.map((item, index) => <CartItem key={index} data={item} deleteFromCart={deleteFromCart}/>)}
+                <Text> Limpiar carrito</Text>
+            </TouchableOpacity>
+        </View>
+        <View style={styles.cartContainer}>
+        { cart.map((item, index) => <CartItem key={index} data={item} deleteFromCart={deleteFromCart}/>)}
         </View>
     </View>
   )
 }
 const styles = StyleSheet.create({
-    cart:{
-
-        height:150,
-        backgroundColor:'white',
-        borderTopColor:'#F9AC66',
-        borderTopWidth:3,
+    container:{
+        alignItems:'center',
     },
-    item:{
-        justifyContent: 'center',
-        alignItems: 'center'
+    text:{
+        color:'#F9AC66',
+        fontFamily:'Rubik-Regular',
+        fontSize:16,
+        fontWeight:'bold'
+    },
+    button:{
+        backgroundColor:'#FF6B95',
+        padding:5,
+        borderRadius:10,
+    },
+    cartContainer:{
+        justifyContent:'space-evenly',
     }
 })

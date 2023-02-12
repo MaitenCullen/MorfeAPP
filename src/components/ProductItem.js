@@ -16,14 +16,13 @@ export const ProductItem = ({data, addToCartItem}) => {
       <Text>
         {price}.00
       </Text>
-      <View style={styles.item}>
-      <TouchableOpacity
-       title='Agregar Producto'
-       onPress={() => addToCartItem(id)}>
-        <Text> Agregar Producto</Text>
-      </TouchableOpacity>
+        <View style={styles.button}>
+            <TouchableOpacity
+            title='Agregar Producto'
+            onPress={() => addToCartItem(id)}>
+              <Text> Agregar Producto</Text>
+            </TouchableOpacity>
       </View>
-   
     </View>
   )
 }
@@ -31,14 +30,18 @@ export const ProductItem = ({data, addToCartItem}) => {
 const styles = StyleSheet.create({
   container:{
       height:70,
-      backgroundColor:'yellow',
-      borderTopColor:'#F9AC66',
-      borderTopWidth:3,
+      backgroundColor:'#FFE0C5',
+      borderRadius:10,
       padding:5,
-      width:350,
-      flex:1
+      width:170,
+      justifyContent:'center',
+      alignItems:'center',
+      margin:5,
   },
-  item:{
-      backgroundColor: 'blue',
+  button:{
+      backgroundColor: '#C36B84',
+      borderRadius:10,
+      alignItems:'center',
+      padding:5,
   }
 })

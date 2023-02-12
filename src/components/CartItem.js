@@ -8,51 +8,54 @@ const CartItem = ({data, deleteFromCart}) => {
 
 
   return (
-    <View>
-  <View style={styles.container}>
-        <Text>
+    <View style={styles.item}>
+        <Text style={styles.text}>
             {name}
         </Text>
-        <Text>
+        <Text style={styles.price}>
             {price}.00 x{quantity} = {price * quantity}.00
         </Text>
-    </View>
-    <View style={styles.item}>
-        <TouchableOpacity
-            title='Eliminar carrito'
-            onPress={()=> deleteFromCart(id,true)}
-        >
-         <Text> Eliminar Todo</Text>
-        </TouchableOpacity>
-        <View style={styles.item}>
-        <TouchableOpacity
-            title='Eliminar item'
-            onPress={()=> deleteFromCart(id)}
-        >
-         <Text> Eliminar Producto</Text>
-        </TouchableOpacity>
+        <View style={styles.button}>
+            <TouchableOpacity
+                title='Eliminar carrito'
+                onPress={()=> deleteFromCart(id,true)}
+            >
+            <Text>Eliminar Todos</Text>
+            </TouchableOpacity>
         </View>
+        <View style={styles.button}>
+            <TouchableOpacity
+                title='Eliminar item'
+                onPress={()=> deleteFromCart(id)}
+            >
+            <Text>Eliminar 1 Producto</Text>
+            </TouchableOpacity>
         </View>
     </View>
-  
- 
   )
 }
 
 
 const styles = StyleSheet.create({
-    container:{
-        backgroundColor:'yellow',
-        borderTopColor:'#F9AC66',
-        borderTopWidth:3,
+    item:{  
         padding:5,
-        width:400
+        borderRadius:10,
+        height:100,
+        margin:10,
     },
-    item:{
-        backgroundColor: 'white',
-        height:10,
-        margin:3,
-        
+    text:{
+        color:'#F9AC66',
+        fontWeight:'bold'
+    },
+    price:{
+        color:'#FFB5CA',
+    },
+    button:{
+        backgroundColor:'#969FDD',
+        padding:5,
+        borderRadius:10,
+        margin:5,
+        alignItems:'center'
     }
   })
 export default CartItem

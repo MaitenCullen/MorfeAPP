@@ -10,6 +10,7 @@ import { SignUp } from './../../screens/SignUp';
 import { List } from './../../screens/List';
 import ListFood from './../../screens/ListFood';
 import Maps from '../../screens/Maps';
+import { ListRedux } from '../../screens/ListRedux';
 
 const Tab = createBottomTabNavigator();
 
@@ -88,7 +89,7 @@ export default function NavigationTab() {
             )
            }}
         />
-        <Tab.Screen
+        {/* <Tab.Screen
         name="Maps"
         title="Maps"
         component={Maps}
@@ -98,6 +99,20 @@ export default function NavigationTab() {
             <View style={styles.item}>
                 <MaterialCommunityIcons name="google-maps" size={24} color="#FFE0C5" />
                 <Text>Mapa</Text>
+            </View>
+            )
+           }}
+        /> */}
+           <Tab.Screen
+        name="Redux"
+        title="Redux"
+        component={ListRedux}
+        options={{
+            headerShown:false,
+            tabBarIcon:({focused}) => (
+            <View style={styles.item}>
+                <MaterialCommunityIcons name="google-maps" size={24} color="#FFE0C5" />
+                <Text>List Redux</Text>
             </View>
             )
            }}

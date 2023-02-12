@@ -61,7 +61,6 @@ const deleteBotom = () => {
 			onChangeText={onChangeText} />
 		<Button disabled={!food} title="agrega" color='#ED6B5B' onPress={onPressButtom}/>
 	</View>
-	<ShoppingCart/>	
 	<View style={GeneralStyles.listView}>
 		<FlatList
 		data={foods}
@@ -73,6 +72,7 @@ const deleteBotom = () => {
 	<View style={ButtonStyles.return}>
 		<Button color="#F9AC66" title='Go Back' onPress={()=> navigation.goBack()}/>
 	</View>
+	<ShoppingCart/>	
 	<View >
 		<Modal visible={seeModal} animationTYpe='slide' style={GeneralStyles.modalContainer}>
 			<View style={GeneralStyles.modalStyle}>
@@ -95,7 +95,7 @@ const deleteBotom = () => {
 			</View>
 			</View>
 		</Modal>
-		</View>
+	</View>
 	</View>
    
   )

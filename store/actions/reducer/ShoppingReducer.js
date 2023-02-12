@@ -4,14 +4,14 @@ import { Types } from '../ShoppingAction';
 export const ShoppingInitialState = {
     products: [
         {id:1,
-        name: 'Producto 1',
-        price: 100},
+        name: 'Hamburguesa',
+        price: 1500},
         {id:2,
-        name: 'Producto 2',
-        price: 300},
+        name: 'Helado 1/4',
+        price: 900},
         {id:3,
-        name: 'Producto 3',
-        price: 150}
+        name: 'Pinta cerveza',
+        price: 650}
     ],
     cart:[],
 };

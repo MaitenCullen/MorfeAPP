@@ -14,7 +14,7 @@ export default function Maps() {
   const [errorMsg, setErrorMsg] = useState(null);
 
   const [origin, setOrigin] = useState({
-    latitude:  32.93439873570948,
+    latitude:  -32.93439873570948,
     longitude:  -60.65383543520691
   })
   

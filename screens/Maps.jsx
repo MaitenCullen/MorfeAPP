@@ -14,7 +14,7 @@ export default function Maps() {
   const [errorMsg, setErrorMsg] = useState(null);
 
   const [origin, setOrigin] = useState({
-    latitude:  -32.93439873570948,
+    latitude:  32.93439873570948,
     longitude:  -60.65383543520691
   })
   
@@ -22,13 +22,13 @@ export default function Maps() {
       
       let { status } = await Location.requestForegroundPermissionsAsync();
       if (status !== 'granted') {
-        setErrorMsg('Permission to access location was denied');
+        alert('Permission to access location was denied');
         return;
       }
 
       let location = await Location.getCurrentPositionAsync({});
       const current = {
-        latitud: location.coords.latitude,
+        latitude: location.coords.latitude,
         longitude: location.coords.longitude
       }
       // setLocation(location);

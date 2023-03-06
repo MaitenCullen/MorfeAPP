@@ -1,14 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import { Platform, Text, View, StyleSheet } from 'react-native';
-
+import React, { useState } from 'react';
+import { useEffect } from 'react';
+import { View, StyleSheet } from 'react-native';
+import MapView, {Marker} from 'react-native-maps';
 import * as Location from 'expo-location';
+import MapPreview from '../src/components/MapPreview';
+import MapViewDirections from 'react-native-maps-directions';
+import { API_KEY_MAPS } from '../src/utilities/MapsAPI';
+import { MapsStyles } from '../styles/MapsPreviewStyles'
+
 
 export default function Maps() {
-  const [location, setLocation] = useState(null);
+  // const [location, setLocation] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
 
-  useEffect(() => {
-    (async () => {
+  const [origin, setOrigin] = useState({
+    latitude:  -32.93439873570948,
+    longitude:  -60.65383543520691
+  })
+  
+    async function getLocation () {
       
       let { status } = await Location.requestForegroundPermissionsAsync();
       if (status !== 'granted') {
@@ -17,20 +27,35 @@ export default function Maps() {
       }
 
       let location = await Location.getCurrentPositionAsync({});
-      setLocation(location);
-    })();
-  }, []);
+      const current = {
+        latitud: location.coords.latitude,
+        longitude: location.coords.longitude
+      }
+      // setLocation(location);
+      setOrigin(current);
+    }
+   
+    useEffect(()=>{
+      getLocation()
+    },[])
 
-  let text = 'Waiting..';
-  if (errorMsg) {
-    text = errorMsg;
-  } else if (location) {
-    text = JSON.stringify(location);
-  }
 
   return (
     <View style={styles.container}>
-      <Text style={styles.paragraph}>{text}</Text>
+      <MapView 
+      style={MapsStyles.mapsIMG}
+      initialRegion={{
+        latitude: origin.latitude,
+        longitude: origin.longitude,
+        latitudeDelta: 0.09,
+        longitudeDelta: 0.04
+        }}>
+          <Marker
+          coordinate={origin}/>
+          <MapViewDirections
+           origin={origin}
+           apiKey={API_KEY_MAPS}/>
+        </MapView>
     </View>
   );
 }

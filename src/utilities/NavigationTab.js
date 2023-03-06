@@ -89,7 +89,7 @@ export default function NavigationTab() {
             )
            }}
         />
-        {/* <Tab.Screen
+        <Tab.Screen
         name="Maps"
         title="Maps"
         component={Maps}
@@ -102,7 +102,7 @@ export default function NavigationTab() {
             </View>
             )
            }}
-        /> */}
+        />
            <Tab.Screen
         name="Redux"
         title="Redux"

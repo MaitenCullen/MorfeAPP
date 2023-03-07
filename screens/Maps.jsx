@@ -54,7 +54,7 @@ export default function Maps() {
           coordinate={origin}/>
           <MapViewDirections
            origin={origin}
-           apiKey={API_KEY_MAPS}/>
+           />
         </MapView>
     </View>
   );

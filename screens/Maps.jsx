@@ -3,9 +3,7 @@ import { useEffect } from 'react';
 import { View, StyleSheet } from 'react-native';
 import MapView, {Marker} from 'react-native-maps';
 import * as Location from 'expo-location';
-import MapPreview from '../src/components/MapPreview';
-import MapViewDirections from 'react-native-maps-directions';
-import { API_KEY_MAPS } from '../src/utilities/MapsAPI';
+
 import { MapsStyles } from '../styles/MapsPreviewStyles'
 
 
@@ -52,9 +50,9 @@ export default function Maps() {
         }}>
           <Marker
           coordinate={origin}/>
-          <MapViewDirections
+          {/* <MapViewDirections
            origin={origin}
-           />
+           /> */}
         </MapView>
     </View>
   );

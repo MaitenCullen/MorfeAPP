@@ -9,6 +9,8 @@ import NavigationTab from './utilities/NavigationTab';
 
 
 const App = () => {
+
+
   const [loaded] = useFonts({
     "Roboto-Regular": require("../assets/Fonts/Roboto-Regular.ttf"),
     "Roboto-Bold": require("../assets/Fonts/Roboto-Bold.ttf"),

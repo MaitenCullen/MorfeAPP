@@ -11,6 +11,7 @@ import { List } from './../../screens/List';
 import ListFood from './../../screens/ListFood';
 import Maps from '../../screens/Maps';
 import { ListRedux } from '../../screens/ListRedux';
+import Favorite from '../../screens/favorites/Favorites';
 
 const Tab = createBottomTabNavigator();
 
@@ -31,6 +32,18 @@ export default function NavigationTab() {
         <View style={styles.item}>
             <AntDesign name="heart" size={24} color="#FFE0C5" />
             <Text>Inicio</Text>
+        </View>
+        )
+       }}
+      />
+     <Tab.Screen 
+      name="CreateTask"
+       component={Favorite} 
+       options={{
+        tabBarIcon:({focused}) => (
+        <View style={styles.item}>
+            <AntDesign name="heart" size={24} color="#FFE0C5" />
+            <Text>Fav</Text>
         </View>
         )
        }}

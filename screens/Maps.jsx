@@ -1,17 +1,25 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { View, StyleSheet } from 'react-native';
-import MapView, {Marker} from 'react-native-maps';
+import MapView, {Marker, Polyline} from 'react-native-maps';
 import * as Location from 'expo-location';
-
+import MapViewDirections from "react-native-maps-directions";
 import { MapsStyles } from '../styles/MapsPreviewStyles'
+import{API_KEY} from '@env';
 
+
+const bicycleIMG = require('../assets/bicycle3.png')
+const restaurantIMG = require('../assets/location.png')
 
 export default function Maps() {
   // const [location, setLocation] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
 
   const [origin, setOrigin] = useState({
+    latitude:  -32.93439873570948,
+    longitude:  -60.65383543520691
+  })
+  const [destination, setDestination] = useState({
     latitude:  -32.93439873570948,
     longitude:  -60.65383543520691
   })
@@ -49,10 +57,24 @@ export default function Maps() {
         longitudeDelta: 0.04
         }}>
           <Marker
-          coordinate={origin}/>
-          {/* <MapViewDirections
-           origin={origin}
-           /> */}
+          draggable={true}
+          coordinate={origin}
+          image={bicycleIMG}
+          onDragEnd={(direction)=> setOrigin(direction.nativeEvent.coordinate)}
+          />
+             <Marker
+          draggable={true}
+          coordinate={destination}
+          image={restaurantIMG}
+          onDragEnd={(direction)=> setDestination(direction.nativeEvent.coordinate)}
+          />
+          <MapViewDirections
+          origin={origin}
+          destination={destination}
+          apikey={API_KEY}
+          strokeColor='#C36B84'
+          strokeWidth={6}
+          />
         </MapView>
     </View>
   );

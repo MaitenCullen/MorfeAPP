@@ -4,7 +4,10 @@ import { TextInput, TouchableOpacity } from 'react-native';
 import GeneralStyles from '../styles/GeneralStyles';
 import LoginStyles from '../styles/LoginStyles';
 import DateTimePicker from '@react-native-community/datetimepicker';
-import NavigationTab from '../src/utilities/NavigationTab';
+import { addDoc, collection } from 'firebase/firestore';
+import { db } from '../database/Firebase';
+
+
 
 export const LogIn = ({navigation}) => {
 const [date, setDate] = useState (new Date());
@@ -30,6 +33,28 @@ const showMode = (currentMode) => {
   setMode(currentMode);
 }
 
+const [ state, setState] = useState({
+  name:'',
+  lastname: '',
+  email: '',
+  provincia: '',
+  ciudad: ''
+})
+
+const SaveNewUser = () => {
+  if ( state.name === '') {
+    alert('pone un nombre')
+  } else {
+     const user = collection(db, 'user')
+     addDoc(user, {
+      state,
+     })
+  }
+}
+const handleChangeText = (name, value) => {
+  setState({...state, [name]:value})
+}
+
   return (
       <View style={GeneralStyles.container}>
         <StatusBar style='auto'/>
@@ -43,12 +68,14 @@ const showMode = (currentMode) => {
           <TextInput style={LoginStyles.inputLogin}
               inputmode='text'
               placeholderTextColor="#ED6B5B"
-              placeholder=""/>
+              placeholder=""
+              onChangeText={(value)=> handleChangeText('name', value)} />
           <Text style={LoginStyles.textLogin} >Apellido</Text>
           <TextInput style={LoginStyles.inputLogin}
               inputmode='text'
               placeholderTextColor="#ED6B5B"
-              placeholder=""/>
+              placeholder=""
+              onChangeText={(value)=> handleChangeText('lastname', value)}/>
           <Text style={LoginStyles.textLogin}>Selecciona tu fecha nacimiento</Text>
           <View style={LoginStyles.containerDate}>
             <View>
@@ -75,15 +102,23 @@ const showMode = (currentMode) => {
           <TextInput style={LoginStyles.inputLogin}
               inputmode='text'
               placeholderTextColor="#ED6B5B"
-              placeholder=""/>
+              placeholder=""
+              onChangeText={(value)=> handleChangeText('provincia', value)}/>
           <Text style={LoginStyles.textLogin} >Ciudad</Text>
           <TextInput style={LoginStyles.inputLogin}
               inputmode='text'
               placeholderTextColor="#ED6B5B"
-              placeholder=""/>
+              placeholder=""
+              onChangeText={(value)=> handleChangeText('ciudad', value)}/>
+          <Text style={LoginStyles.textLogin} >Email</Text>
+          <TextInput style={LoginStyles.inputLogin}
+              inputmode='text'
+              placeholderTextColor="#ED6B5B"
+              placeholder=""
+              onChangeText={(value)=> handleChangeText('email', value)}/>
           <View style={LoginStyles.buttonLogin}>
             <View>
-              <Button title='Go Back' onPress={()=> navigation.goBack()}/>
+              <Button title='Go Back' onPress={()=> SaveNewUser()}/>
             </View>
             <View>
               <Button title='ir a la lista' onPress={()=>navigation.navigate('ListFood')}></Button>

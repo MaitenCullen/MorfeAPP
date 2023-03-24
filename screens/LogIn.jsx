@@ -1,15 +1,21 @@
 import React, { useState } from 'react'
-import { Button, StatusBar, Text, Platform, View, Image } from 'react-native'
+import { Button, StatusBar, Text, Platform, View, Image, ScrollView } from 'react-native'
 import { TextInput, TouchableOpacity } from 'react-native';
 import GeneralStyles from '../styles/GeneralStyles';
 import LoginStyles from '../styles/LoginStyles';
 import DateTimePicker from '@react-native-community/datetimepicker';
-import { addDoc, collection } from 'firebase/firestore';
-import { db } from '../database/Firebase';
+
+import { createUserWithEmailAndPassword , getAuth } from 'firebase/auth';
+import { initializeApp } from 'firebase/app';
+import { db, firebaseConfig } from './../database/Firebase';
+import { collection } from 'firebase/firestore';
+
 
 
 
 export const LogIn = ({navigation}) => {
+
+  const auth = getAuth();
 const [date, setDate] = useState (new Date());
 const [ mode, setMode] = useState('date');
 const [ show, setShow] =  useState (false);
@@ -38,17 +44,36 @@ const [ state, setState] = useState({
   lastname: '',
   email: '',
   provincia: '',
-  ciudad: ''
+  ciudad: '',
+  password: ''
 })
+
+const handleCreateAccount = () => {
+  createUserWithEmailAndPassword(auth, state.email, state.password)
+  .then((userCredential) => {
+    const newUser = collection(db, 'user')
+    addDoc(newUser, {
+     state,
+  })
+  const user = userCredential.user;
+  console.log(user)
+  console.log('Account created!')
+  .catch(error => {
+    console.log(error)
+    Alert.alert(error.message)
+  })
+})
+}
+
+
+
 
 const SaveNewUser = () => {
   if ( state.name === '') {
     alert('pone un nombre')
   } else {
-     const user = collection(db, 'user')
-     addDoc(user, {
-      state,
-     })
+   navigation.navigate('Perfil')
+   handleCreateAccount()
   }
 }
 const handleChangeText = (name, value) => {
@@ -56,7 +81,8 @@ const handleChangeText = (name, value) => {
 }
 
   return (
-      <View style={GeneralStyles.container}>
+    <ScrollView>
+   <View style={GeneralStyles.container}>
         <StatusBar style='auto'/>
           <View style={LoginStyles.loginContainer}>
           <View style={LoginStyles.containerImageLogin}>
@@ -116,6 +142,13 @@ const handleChangeText = (name, value) => {
               placeholderTextColor="#ED6B5B"
               placeholder=""
               onChangeText={(value)=> handleChangeText('email', value)}/>
+               <Text style={LoginStyles.textLogin} >Contraseña</Text>
+          <TextInput style={LoginStyles.inputLogin}
+              inputmode='text'
+              placeholderTextColor="#ED6B5B"
+              placeholder=""
+              secureTextEntry={true}
+              onChangeText={(value)=> handleChangeText('password', value)}/>
           <View style={LoginStyles.buttonLogin}>
             <View>
               <Button title='Go Back' onPress={()=> SaveNewUser()}/>
@@ -129,6 +162,8 @@ const handleChangeText = (name, value) => {
           </View>
           </View>
       </View>
+    </ScrollView>
+   
 
     )
 }

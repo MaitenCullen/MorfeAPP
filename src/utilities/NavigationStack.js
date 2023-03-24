@@ -7,6 +7,9 @@ import { List } from './../../screens/List';
 import ListFood from "../../screens/ListFood";
 import Maps from "../../screens/Maps";
 import { SignUp } from './../../screens/SignUp';
+import Favorite from './../../screens/favorites/Favorites';
+import { ListRedux } from './../../screens/ListRedux';
+import { Profile } from './../../screens/Profile';
 
 
 
@@ -25,13 +28,18 @@ export default function NavigationStack(){
             name="Login"
             title="Iniciar Sesión"
             component={LogIn}
-            options={{ headerShown: false }}
+        
             />
             <Stack.Screen
             name="Signup"
             title="Ingresar"
             component={SignUp}
-            options={{ headerShown: false }}
+          
+            />
+                <Stack.Screen
+            name="Perfil"
+            title="Perfil"
+            component={Profile}
             />
             <Stack.Screen
             name="List"
@@ -47,6 +55,16 @@ export default function NavigationStack(){
             name="Maps"
             title="Maps"
             component={Maps}
+            />
+              <Stack.Screen
+            name="Favorite"
+            title="Favoritos"
+            component={Favorite}
+            />
+              <Stack.Screen
+            name="Redux"
+            title="Redux"
+            component={ListRedux}
             />
         </Stack.Navigator>
     )

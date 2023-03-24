@@ -1,5 +1,5 @@
 
-import { StyleSheet } from "react-native";
+import { StatusBar, StyleSheet } from "react-native";
 
 
 const LoginStyles = StyleSheet.create({
@@ -7,7 +7,8 @@ const LoginStyles = StyleSheet.create({
         color:'white',
         justifyContent: "center",
         alignContent: "center",
-        width:'80%'
+        width:'80%',
+        marginTop: StatusBar.currentHeight,
         
     },
     containerImageLogin:{
@@ -16,8 +17,8 @@ const LoginStyles = StyleSheet.create({
         alignItems: 'center',
     },
     imageLogin:{
-        width:100,
-        height:100,
+        width:80,
+        height:80,
     },
     textLogin:{
         color:'white',

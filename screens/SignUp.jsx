@@ -5,21 +5,33 @@ import GeneralStyles from '../styles/GeneralStyles';
 import {StatusBar, Image} from 'react-native';
 import SignUpStyles from "../styles/SignUpStyles";
 import {TextInput} from 'react-native';
+import { signInWithEmailAndPassword, getAuth} from 'firebase/auth';
+
+
+
 
 
 export const SignUp = ({navigation}) => {
-  const users = [
-    {
-        id:'01',
-        username:'Maiten',
-        Password:'0718',
-    },
-    {
-        id:'02',
-        username:'Maxi',
-        Password:'3018',
+    const auth = getAuth();
+
+    const handleSigIn = () => {    
+        console.log(email, password, " los usuarios")
+       signInWithEmailAndPassword( auth, email, password)
+        .then((userCredential) => {
+            console.log('ingresaste')
+            const user  = userCredential.user
+            navigation.navigate('Perfil')
+        })
+        .catch(error => {
+            console.log(error, errorCode, errorMessage)
+            const errorCode = error.code;
+            const errorMessage = error.message;
+
+        })
     }
-  ]
+
+    const [ email, setEmail] = useState('')
+    const [ password, setPassword] = useState('')
   
 
     return (
@@ -33,25 +45,29 @@ export const SignUp = ({navigation}) => {
             </View>
             <View>
                 <TextInput style={SignUpStyles.input} 
-                placeholder="Usuario"
-                autoComplete="off"
-                autoCorrect={true}
-                autoCapitalize="none"
-                inputmode='text'
-                placeholderTextColor="#ED6B5B"/>
-            </View>
-            <View>
-                <TextInput style={SignUpStyles.input}
-                placeholder="Contraseña"
+                placeholder="email"
                 autoComplete="off"
                 autoCorrect={true}
                 autoCapitalize="none"
                 inputmode='text'
                 placeholderTextColor="#ED6B5B"
+                onChangeText={(text)=> setEmail(text)}/>
+            </View>
+            <View>
+                <TextInput style={SignUpStyles.input}
+                placeholder="password"
+                autoComplete="off"
+                autoCorrect={true}
+                autoCapitalize="none"
+                inputmode='text'
+                placeholderTextColor="#ED6B5B"
+                secureTextEntry={true}
+                onChangeText={(value) => setPassword(value)}
                 />
             </View>
             <View>
-                <TouchableOpacity style={SignUpStyles.button}>
+                <TouchableOpacity style={SignUpStyles.button}
+                onPress={handleSigIn}>
                     <Text style={SignUpStyles.textButton}>
                         Ingresar
                     </Text>

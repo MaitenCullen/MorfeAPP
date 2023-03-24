@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import {StatusBar} from 'react-native';
 
 
 const SignUpStyles = StyleSheet.create({
@@ -10,6 +11,7 @@ const SignUpStyles = StyleSheet.create({
         flex:1,
         justifyContent:'space-evenly',
         alignItems:'center',
+        marginTop: StatusBar.currentHeight,
     },
     input:{
         fontSize: 20,

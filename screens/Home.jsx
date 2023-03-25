@@ -21,12 +21,7 @@ import { ShoppingCart } from '../src/components/ShoppingCart'
               onPress={()=> navigation.navigate("Login")} >
               <Text style={ButtonStyles.textoLogin}> Unirse</Text>
           </TouchableOpacity>
-          <TouchableOpacity  
-              style={ButtonStyles.buttonGoogle}
-              title='Lista'
-              onPress={() => navigation.navigate('List')}>
-              <Text> Aca vas a la lista don</Text>
-          </TouchableOpacity>
+
           <Text style={GeneralStyles.textSigUp}>¿Ya hemos comido juntos? <Text style={GeneralStyles.textNavigate} onPress={()=> navigation.navigate('Signup')}> Iniciar sesión</Text></Text>
       </View>
     </View>

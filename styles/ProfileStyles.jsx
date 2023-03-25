@@ -43,6 +43,18 @@ const ProfileStyles = StyleSheet.create({
         padding:5,
         justifyContent:'center',
         alignItems:'center',
+    },
+    buttonList:{
+        margin:20,
+        borderRadius:20,
+        shadowRadius:4,
+        shadowColor:'rgba(0, 0, 0, 0.30)',
+        backgroundColor:'#FFB5CA',
+        width:170,
+        height:50,
+        padding:5,
+        justifyContent:'center',
+        alignItems:'center',
     }
 
     })

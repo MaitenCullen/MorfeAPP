@@ -59,11 +59,23 @@ const LoginStyles = StyleSheet.create({
     fontSize:20,
     margin:5
  },
- buttonLogin:{
+ buttonLoginContainer:{
     margin:20,
     flexDirection:'row',
     justifyContent:"space-evenly",
     alignContent:'center'
+ },
+ buttonLogin:{
+    margin:10,
+    borderRadius:20,
+    shadowRadius:4,
+    shadowColor:'rgba(0, 0, 0, 0.30)',
+    backgroundColor:'#969FDD',
+    width:150,
+    height:50,
+    padding:5,
+    justifyContent:'center',
+    alignItems:'center',
  }
 })
 

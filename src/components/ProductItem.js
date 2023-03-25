@@ -29,14 +29,15 @@ export const ProductItem = ({data, addToCartItem}) => {
 
 const styles = StyleSheet.create({
   container:{
-      height:70,
+      height:100,
       backgroundColor:'#FFE0C5',
       borderRadius:10,
       padding:5,
       width:170,
       justifyContent:'center',
       alignItems:'center',
-      margin:5,
+      margin:7,
+      justifyContent:'space-between'
   },
   button:{
       backgroundColor: '#C36B84',

@@ -15,7 +15,6 @@ export const SignUp = ({navigation}) => {
     const auth = getAuth();
 
     const handleSigIn = () => {    
-        console.log(email, password, " los usuarios")
        signInWithEmailAndPassword( auth, email, password)
         .then((userCredential) => {
             console.log('ingresaste')
@@ -23,9 +22,8 @@ export const SignUp = ({navigation}) => {
             navigation.navigate('Perfil')
         })
         .catch(error => {
-            console.log(error, errorCode, errorMessage)
-            const errorCode = error.code;
-            const errorMessage = error.message;
+            console.log(error)
+          
 
         })
     }

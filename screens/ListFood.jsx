@@ -6,6 +6,9 @@ import { View } from 'react-native';
 import { useState } from 'react';
 import { Button } from 'react-native';
 import FoodListSyle from './../styles/FoodListStyle';
+import ButtonStyles from './../styles/ButtonStyles';
+import { TouchableOpacity } from 'react-native';
+
 
 
 
@@ -67,8 +70,11 @@ import FoodListSyle from './../styles/FoodListStyle';
     const FoodComponent = () => {
         return (
           <SafeAreaView style={{fontWeight:'bold', fontSize:20, backgroundColor:'#3A3E59', flex: 1, alignItems:'center'}}>
-            <Text style={FoodListSyle.selectItem}>Comida</Text>
-            <Button title='Volver' onPress={()=> setSelectedFood()}/>
+            <Text style={FoodListSyle.selectItem}>30%off</Text>
+            <TouchableOpacity
+            style={ButtonStyles.returnButton}  onPress={()=> setSelectedFood()}>
+              <Text>Volver</Text>
+            </TouchableOpacity>
           </SafeAreaView>
           )
       }
@@ -77,24 +83,33 @@ import FoodListSyle from './../styles/FoodListStyle';
         const CakeComponent = () => {
         return (
           <SafeAreaView style={{fontWeight:'bold', fontSize:20, backgroundColor:'#3A3E59', flex: 1, alignItems:'center'}}>
-            <Text style={FoodListSyle.selectItem}>Tortas</Text>
-            <Button title='Volver' onPress={()=> setSelectedFood()}/>
+            <Text style={FoodListSyle.selectItem}>45% off</Text>
+            <TouchableOpacity
+            style={ButtonStyles.returnButton}  onPress={()=> setSelectedFood()}>
+              <Text>Volver</Text>
+            </TouchableOpacity>
           </SafeAreaView>
           )
       }
       const IceCreamComponent = ({navigation}) => {
         return (
           <SafeAreaView style={{fontWeight:'bold', fontSize:20, backgroundColor:'#3A3E59', flex: 1, alignItems:'center', justifyContent:'space-evenly'}}>
-            <Text style={FoodListSyle.selectItem}>Le pegaste, El helado es la mejor comida del mundo</Text>
-            <Button title='Volver' onPress={()=> setSelectedFood()}/>
+            <Text style={FoodListSyle.selectItem}>El helado es la mejor comida del mundo, 3x2 en 1/4</Text>
+            <TouchableOpacity
+            style={ButtonStyles.returnButton}  onPress={()=> setSelectedFood()}>
+              <Text>Volver</Text>
+            </TouchableOpacity>
           </SafeAreaView>
           )
       }
       const DrinkComponent = () => {
         return (
-          <SafeAreaView style={{fontWeight:'bold', fontSize:20, backgroundColor:'#3A3E59', flex: 1, alignItems:'center'}}>
-            <Text style={FoodListSyle.selectItem}>Bebidas</Text>
-            <Button title='Volver' onPress={()=> setSelectedFood()}/>
+          <SafeAreaView style={{fontWeight:'bold', fontSize:16, backgroundColor:'#3A3E59', flex: 1, alignItems:'center'}}>
+            <Text style={FoodListSyle.selectItem}>Nos encanta la birra, 2x3 en pintas y 50% off en vinos</Text>
+            <TouchableOpacity
+            style={ButtonStyles.returnButton}  onPress={()=> setSelectedFood()}>
+              <Text>Volver</Text>
+            </TouchableOpacity>
           </SafeAreaView>
           )
       }
@@ -137,7 +152,7 @@ const onSelectFood = (food)=> {
   <>
     { !selectFood ?
         <SafeAreaView style={{fontWeight:'bold', fontFamily: 'Roboto-Regular',fontSize:20, backgroundColor:'#3A3E59', flex: 1, alignItems:'center'}}>
-        <Text style={FoodListSyle.text}> Adivina la mejor comida del mundo mundial</Text>
+        <Text style={FoodListSyle.text}> Elegi tu favorito y llevate un descuento</Text>
         <FlatList
         data={foodList}
         keyExtractor={(food) => food.id}

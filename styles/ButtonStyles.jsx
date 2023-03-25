@@ -36,6 +36,18 @@ const ButtonStyles = StyleSheet.create({
     return:{
         justifyContent:'center',
         alignItems: "center"
+    },
+    returnButton:{
+        margin:10,
+        borderRadius:20,
+        shadowRadius:4,
+        shadowColor:'rgba(0, 0, 0, 0.30)',
+        backgroundColor:'#969FDD',
+        width:70,
+        height:35,
+        padding:5,
+        justifyContent:'center',
+        alignItems:'center',
     }
 });
     

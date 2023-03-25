@@ -1,14 +1,15 @@
 import React, { useState } from 'react'
-import { Button, StatusBar, Text, Platform, View, Image, ScrollView } from 'react-native'
+import { StatusBar, Text, Platform, View, Image, ScrollView } from 'react-native'
 import { TextInput, TouchableOpacity } from 'react-native';
 import GeneralStyles from '../styles/GeneralStyles';
 import LoginStyles from '../styles/LoginStyles';
 import DateTimePicker from '@react-native-community/datetimepicker';
 
 import { createUserWithEmailAndPassword , getAuth } from 'firebase/auth';
-import { initializeApp } from 'firebase/app';
-import { db, firebaseConfig } from './../database/Firebase';
+import { db } from './../database/Firebase';
 import { collection } from 'firebase/firestore';
+import ButtonStyles from '../styles/ButtonStyles';
+import ProfileStyles from '../styles/ProfileStyles';
 
 
 
@@ -31,7 +32,6 @@ const onChange =(event, selectedDate)  => {
   let fTime =  tempDate.getHours() + ' Horas ' + tempDate.getMinutes() + ' Min' ;
   setText(fDate + ' | ' + fTime)
 
-  console.log(fDate + '(' + fTime + ')') 
 }
 
 const showMode = (currentMode) => {
@@ -57,7 +57,6 @@ const handleCreateAccount = () => {
   })
   const user = userCredential.user;
   console.log(user)
-  console.log('Account created!')
   .catch(error => {
     console.log(error)
     Alert.alert(error.message)
@@ -149,16 +148,11 @@ const handleChangeText = (name, value) => {
               placeholder=""
               secureTextEntry={true}
               onChangeText={(value)=> handleChangeText('password', value)}/>
-          <View style={LoginStyles.buttonLogin}>
-            <View>
-              <Button title='Go Back' onPress={()=> SaveNewUser()}/>
-            </View>
-            <View>
-              <Button title='ir a la lista' onPress={()=>navigation.navigate('ListFood')}></Button>
-            </View>
-            <View>
-              <Button title='Maps' onPress={()=>navigation.navigate('Maps')}></Button>
-            </View>
+          <View style={LoginStyles.buttonLoginContainer}>
+            <TouchableOpacity
+            style={LoginStyles.buttonLogin}   onPress={()=> SaveNewUser()}>
+              <Text style={{fontWeight:'bold', fontSize:20, color:'#FFE0C5'}}>Registrarse</Text>
+            </TouchableOpacity>
           </View>
           </View>
       </View>

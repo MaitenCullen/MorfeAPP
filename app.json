@@ -4,15 +4,16 @@
     "slug": "morfeAPP",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/logo.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/splashimg.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#3A3E59"
     },
     "updates": {
-      "fallbackToCacheTimeout": 0
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/b0ee484d-5f46-4f51-a940-fbb87f71617b"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -24,8 +25,20 @@
     "android": {
       "package": "com.morfeapp.maiten",
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
+        "foregroundImage": "./assets/logo.png",
+        "backgroundColor": "#3A3E59"
+      },
+      
+        "permissions": [
+          "CAMERA",
+          "ACCES_FINE_LOCATION",
+          "WRITE_EXTERNAL_STORAGE"
+        ]
+      
+    },
+    "config":{
+      "googleMaps":{
+        "apyKey":"AIzaSyDdqeaICzWgXMI0mJQ7e1Lv8l7dUt7vFeU"
       }
     },
     "web": {
@@ -35,6 +48,9 @@
       "eas": {
         "projectId": "b0ee484d-5f46-4f51-a940-fbb87f71617b"
       }
+    },
+    "runtimeVersion": {
+      "policy": "sdkVersion"
     }
   }
 }

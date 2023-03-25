@@ -7,6 +7,7 @@ import CartItem from './CartItem';
 import { ProductItem } from './ProductItem';
 import {TouchableOpacity} from 'react-native';
 import { Types } from './../../store/actions/ShoppingAction';
+import {StatusBar} from 'react-native';
 
 export const ShoppingCart = () => {
     const [state, dispatch]= useReducer(
@@ -17,12 +18,10 @@ export const ShoppingCart = () => {
 const {products, cart} = state;
 
 const addToCartItem = (id) => {
- console.log(id, 'el producto');
  dispatch({type:Types.AddToCart, payload:id})
 }
 
 const deleteFromCart = (id, all = false) => {
-    console.log(id, all);
     if (all) {
         dispatch({type:Types.RemoveAllFromCart, payload:id})
     } else {
@@ -36,7 +35,8 @@ const clearCartItem = () => {
 }
   return (
     <View style={styles.container}>
-        <Text style={styles.text}>carrito de compras</Text>
+        <Text style={styles.text}>Nuestras promos</Text>
+        <Text style={styles.text2}>Validas en cualquier comercio adherido</Text>
             {products.map((product) => (<ProductItem key={product.id} data={product} addToCartItem ={addToCartItem}/>))}
         <View style={styles.button}>
             <TouchableOpacity
@@ -54,12 +54,20 @@ const clearCartItem = () => {
 const styles = StyleSheet.create({
     container:{
         alignItems:'center',
+        marginTop: StatusBar.currentHeight,
+        flex:1
     },
     text:{
         color:'#F9AC66',
         fontFamily:'Rubik-Regular',
         fontSize:16,
         fontWeight:'bold'
+    },
+    text2:{
+        color:'#FFE0C5',
+        fontFamily:'Rubik-Regular',
+        fontSize:16,
+        fontWeight:'300'
     },
     button:{
         backgroundColor:'#FF6B95',
@@ -68,5 +76,6 @@ const styles = StyleSheet.create({
     },
     cartContainer:{
         justifyContent:'space-evenly',
+        height:500
     }
 })

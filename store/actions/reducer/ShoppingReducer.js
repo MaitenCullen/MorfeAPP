@@ -4,14 +4,20 @@ import { Types } from '../ShoppingAction';
 export const ShoppingInitialState = {
     products: [
         {id:1,
-        name: 'Hamburguesa',
-        price: 1500},
+        name: 'Cuatro pintas con papas y bastones muzzarela',
+        price: 3000},
         {id:2,
-        name: 'Helado 1/4',
-        price: 900},
+        name: 'Helado 1/4 50% off',
+        price: 500},
         {id:3,
-        name: 'Pinta cerveza',
-        price: 650}
+        name: 'Pinta cerveza 50% off toda la noche',
+        price: 250},
+        {id:4,
+        name: 'Hamburguesa completa con una pinta o gaseosa',
+        price: 1200},
+        {id:5,
+        name: '1x3 en tragos, pagas uno tomas tres',
+        price: 800}
     ],
     cart:[],
 };

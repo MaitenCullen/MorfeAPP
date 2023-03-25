@@ -14,6 +14,12 @@ export const Profile = ({navigation}) => {
         Mis favoritos
         </Text>
     </TouchableOpacity>
+    <TouchableOpacity  
+              style={ProfileStyles.buttonList}
+              title='Lista'
+              onPress={() => navigation.navigate('List')}>
+              <Text> Aca vas a la lista don</Text>
+          </TouchableOpacity>
     <TouchableOpacity style={ProfileStyles.buttonMaps}
     onPress={() => navigation.navigate('Maps')}>
         <Text>

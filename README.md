@@ -1,10 +1,9 @@
-# MorfeAPP
-
+# MorfeAPP 
+ :hamburger:
 MorfeApp es una propuesta para conocer y disfrutar espacios gastronomicos. Pensada para recorrer gastronomicamente la ciudad de Rosario, famosa por su cocina y excelente cerveza, podes tambien buscar en tu localidad lugares que quieras recorrer y ver la distancia entre ellos y vos. En MorfeApp te registras y podes acceder a distintas funcionalidades. Te invitamos a recorrer el mapa, seleccionar distintos puntos de lugar para comer y tomar siempre cosas ricas. Encontrar distintas promos según la propuesta y poder llevar un listado de los lugares o comidas que mas te han gustado. La app continua en desarrollo y agregando nuevas propuestas. :beers:
 
 
-## Gif proyecto
-- link de navegación :hamburger:
+- link de navegación 
 #proximamente
 ## Como instalar? 
  - Actualmente solo disponible para dispositivos Android :shaved_ice:

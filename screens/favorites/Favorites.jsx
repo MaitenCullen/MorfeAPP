@@ -57,9 +57,11 @@ function Items({ done: doneHeading, onPressItem }) {
           onPress={() => onPressItem && onPressItem(id)}
           style={{
             backgroundColor: done ? "#969FDD" : "#ED6B5B",
-            borderColor: "#000",
+            borderColor: "#FFE0C5",
             borderWidth: 1,
             padding: 8,
+            borderRadius: 10,
+            margin: 10,
           }}
         >
           <Text style={{ color: done ? "#3A3E59" : "#FFE0C5" }}>{value}</Text>
@@ -101,7 +103,7 @@ export default function Favorite() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.heading}>Probando</Text>
+      <Text style={styles.heading}>Aca podes agregar los lugares/comidas por probar y los ya testeados</Text>
 
       {Platform.OS === "web" ? (
         <View
@@ -123,6 +125,7 @@ export default function Favorite() {
               placeholder="Que vas a probar hoy?"
               style={styles.input}
               value={text}
+              placeholderTextColor="#FFE0C5"
             />
           </View>
           <ScrollView style={styles.listArea}>
@@ -168,7 +171,7 @@ function useForceUpdate() {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#FFB5CA",
+    backgroundColor: "#3A3E59",
     flex: 1,
     paddingTop: Constants.statusBarHeight,
   },
@@ -176,21 +179,22 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
     textAlign: "center",
+    color:'#FFE0C5'
   },
   flexRow: {
     flexDirection: "row",
   },
   input: {
-    borderColor: "#FF6B95",
+    borderColor: "#FFB5CA",
     borderRadius: 6,
     borderWidth: 3,
     flex: 1,
     height: 48,
     margin: 16,
     padding: 8,
-    color:"#FFB5CA",
+    color:"#FFE0C5",
     fontFamily:'Rubik-Regular',
-    backgroundColor: "#fff",
+    backgroundColor: "#C36B84",
   },
   listArea: {
     backgroundColor: "#f0f0f0",

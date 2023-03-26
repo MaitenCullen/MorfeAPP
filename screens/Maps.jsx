@@ -20,8 +20,8 @@ export default function Maps() {
     longitude:  -60.65383543520691
   })
   const [destination, setDestination] = useState({
-    latitude:  -32.93439873570948,
-    longitude:  -60.65383543520691
+    latitude: origin.latitude,
+    longitude: origin.longitude
   })
   
     async function getLocation () {

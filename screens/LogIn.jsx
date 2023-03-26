@@ -7,7 +7,7 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 
 import { createUserWithEmailAndPassword , getAuth } from 'firebase/auth';
 import { db } from './../database/Firebase';
-import { collection } from 'firebase/firestore';
+import { addDoc, collection } from 'firebase/firestore';
 import ButtonStyles from '../styles/ButtonStyles';
 import ProfileStyles from '../styles/ProfileStyles';
 
@@ -59,7 +59,6 @@ const handleCreateAccount = () => {
   console.log(user)
   .catch(error => {
     console.log(error)
-    Alert.alert(error.message)
   })
 })
 }

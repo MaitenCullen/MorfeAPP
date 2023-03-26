@@ -17,7 +17,7 @@ export const Profile = ({navigation}) => {
     <TouchableOpacity  
               style={ProfileStyles.buttonList}
               title='Lista'
-              onPress={() => navigation.navigate('List')}>
+              onPress={() => navigation.navigate('Favorite')}>
               <Text> Aca vas a la lista don</Text>
           </TouchableOpacity>
     <TouchableOpacity style={ProfileStyles.buttonMaps}

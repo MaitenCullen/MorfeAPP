@@ -17,13 +17,13 @@ export const SignUp = ({navigation}) => {
     const handleSigIn = () => {    
        signInWithEmailAndPassword( auth, email, password)
         .then((userCredential) => {
-            console.log('ingresaste')
             const user  = userCredential.user
             navigation.navigate('Perfil')
         })
         .catch(error => {
-            console.log(error)
-          
+            console.log(error, errorCode, errorMessage)
+            const errorCode = error.code;
+            const errorMessage = error.message;
 
         })
     }
